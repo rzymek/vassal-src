@@ -84,6 +84,7 @@ import VASSAL.command.Logger;
 import VASSAL.command.NullCommand;
 import VASSAL.configure.CompoundValidityChecker;
 import VASSAL.configure.MandatoryComponent;
+import VASSAL.counters.DumpCounters;
 import VASSAL.counters.GamePiece;
 import VASSAL.i18n.ComponentI18nData;
 import VASSAL.i18n.Localization;
@@ -851,6 +852,7 @@ public abstract class GameModule extends AbstractConfigurable implements Command
       theModule.setGpIdSupport(theModule);
       try {
         theModule.build();
+        DumpCounters.process(theModule);
       }
       catch (IOException e) {
         theModule = null;
